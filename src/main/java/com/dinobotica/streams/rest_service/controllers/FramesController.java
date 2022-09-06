@@ -34,8 +34,9 @@ public class FramesController {
         HttpHeaders headers = new HttpHeaders();
         
         String chunksPath = System.getenv().get("LOCAL_ENV_CHUNKS_PATH");
+        String chunksPath2 = System.getenv("LOCAL_ENV_CHUNKS_PATH");
 
-        try (BufferedInputStream fileReader = new BufferedInputStream(new FileInputStream(chunksPath + FRAMES_PATH + "FramesChunk_" + chunkId + ".json"), 1024 << 9);)
+        try (BufferedInputStream fileReader = new BufferedInputStream(new FileInputStream((chunksPath == null ? chunksPath2 : chunksPath) + FRAMES_PATH + "FramesChunk_" + chunkId + ".json"), 1024 << 9);)
         {
             headers.setContentDispositionFormData("attachment", "jsonChunk_" + Math.random() + ".json");
             headers.setAccessControlAllowOrigin("*");

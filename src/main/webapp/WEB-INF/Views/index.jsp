@@ -26,7 +26,7 @@
         let chunkId = 1;
         while(availableChunks && chunkId <= 15)
         {
-            const TXT_URL = '/api/v0/frames/getFramesChunk/00';
+            const TXT_URL = 'api/v0/frames/getFramesChunk/00';
             let chunkIdString = (chunkId < 10 ? "0" + chunkId : "" + chunkId);
             setTimeout(() => {
 
